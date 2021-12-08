@@ -1,0 +1,26 @@
+.container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--gray);
+}
+
+.content {
+  position: fixed;
+  top: 0;
+  left: 15vw;
+  width: 70%;
+  height: 100vh;
+  background-color: var(--orange);
+  padding: 5rem;
+  color: var(--light);
+  overflow: auto;
+}
+h1 {
+  position: fixed;
+  z-index: 1;
+  padding: 0 0 0 15vw;
+  width: 100vw;
+  background-color: var(--dark);
+}
