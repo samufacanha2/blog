@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import { Post } from "blog";
+import { BlogPost } from "blog";
 import "./styles.scss";
-type PostType = Post;
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+
 export default function Home() {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -16,9 +19,19 @@ export default function Home() {
     <div className="container">
       <h1>Home</h1>
       <div className="content">
-        {posts.map((post: PostType) => (
-          <p>{post.title}</p>
+        {posts.map((post: BlogPost) => (
+          <>
+            <Link to={`post/${post.id}`}>{post.title}</Link> <br />
+          </>
         ))}
+      </div>
+      <div
+        className="add"
+        onClick={() => {
+          navigate("/posts/add");
+        }}
+      >
+        +
       </div>
     </div>
   );

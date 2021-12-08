@@ -1,9 +1,9 @@
 declare module "blog" {
-  type Post = {
+  type BlogPost = {
     id: number;
     title: string;
-    description: string;
-    imagePath: string;
+    body: string;
+    avatar: string;
     creator: string;
   };
 }
