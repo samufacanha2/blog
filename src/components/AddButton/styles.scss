@@ -1,0 +1,29 @@
+.add {
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5rem;
+  background-color: var(--light);
+  font-size: 5rem;
+  text-align: center;
+  text-justify: center;
+  color: var(--dark);
+  user-select: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-sizing: content-box;
+  border: 1px solid var(--dark);
+
+  span {
+    display: block;
+    line-height: 5rem;
+    height: 5rem;
+    width: 5rem;
+  }
+  &:hover {
+    background-color: var(--orange);
+    color: var(--light);
+  }
+}

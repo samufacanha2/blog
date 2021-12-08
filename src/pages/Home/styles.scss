@@ -8,41 +8,37 @@
 
 .content {
   position: fixed;
-  top: 0;
+  top: 8vh;
   left: 15vw;
   width: 70%;
-  height: 100vh;
+  height: 92vh;
   background-color: var(--orange);
-  padding: 10vh 5rem 5rem;
+  padding: 0 5rem;
   color: var(--light);
   overflow: auto;
 }
-h1 {
-  color: var(--light);
-  position: fixed;
-  height: 8vh;
-  z-index: 1;
-  padding: 0 0 0 15vw;
-  width: 100vw;
-  background-color: var(--dark);
-}
-.add {
-  position: fixed;
-  bottom: 2rem;
-  right: 5rem;
-  height: 5rem;
-  width: 5rem;
-  border-radius: 5rem;
+.post {
+  height: 30vh;
+  padding: 3rem;
   background-color: var(--light);
-  font-size: 5rem;
-  text-align: center;
-  line-height: 4rem;
-  color: var(--dark);
-  user-select: none;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-  &:hover {
-    background-color: var(--orange);
-    color: var(--light);
+  margin: 3rem 0;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  border-radius: 5rem;
+  box-shadow: 0 0 1rem #4e4e4e38;
+
+  .title {
+    font-size: 3rem;
+    color: var(--dark);
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+    color: var(--gray);
   }
 }

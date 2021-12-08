@@ -16,10 +16,6 @@ export default function Post() {
 
   return (
     <div className="container">
-      <h1>
-        <Link to="/">Post</Link>
-      </h1>
-
       <div className="content">
         <h2>{post.title}</h2>
         <br />
