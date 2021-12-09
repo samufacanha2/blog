@@ -3,7 +3,6 @@ declare module "blog" {
     id: number;
     title: string;
     body: string;
-    avatar: string;
     creator: string;
   };
 }
