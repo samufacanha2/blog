@@ -11,8 +11,6 @@
 
 ## The Blog App Functionalities
 
-The application consists of a personal blog.
-
 <br/>
 
     Functionalities implemented in v1:
