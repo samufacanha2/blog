@@ -1,3 +1,48 @@
+# App Overview
+
+
+## Libraries and Technologies
+
+ The Blog front-end was built using React.ts, as well as many other utility libraries (see package.json).
+ 
+ The API was made using mockapi.io.
+
+ <br/>
+
+## The Blog App Functionalities
+
+The application consists of a personal blog.
+
+<br/>
+
+    Functionalities implemented in v1:
+
+    - Full CRUD API consumption using axios
+    - Basic styled user interface
+    - State management using React-Redux
+    - Validated Inputs
+    - Routing using React-Router
+    - Responsiveness
+    - Usage of Hooks
+
+    Functionalities to implement in v2:
+
+    - User autentication
+    - Better user interface
+    - Usage of test libraries (Jest/Mocha)
+
+<br/>
+
+# Link to deployed version (Vercel)
+
+[https://blog-s.vercel.app/](https://blog-s.vercel.app/)
+----------
+----------
+
+
+<br/>
+<br/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
