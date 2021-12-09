@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setPost as setPost2, setLoading } from "../../utils/actions";
 
 import "./styles.scss";
 import api from "../../services/api";
@@ -16,16 +18,22 @@ interface Props {
 
 const Form = ({ type }: Props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [post, setPost] = useState(initialState);
 
   const [, , , postId] = window.location.pathname.split("/");
+  const reduxPost = useSelector((state: Storage) => state.post);
 
   useEffect(() => {
-    api.get(`/posts/${postId}`).then((response) => {
-      console.log(response.data);
-      setPost(response.data);
-    });
+    reduxPost.id !== -1 && type === "edit" ? setPost(reduxPost) : fetchPost();
   }, []);
+
+  const fetchPost = () =>
+    api.get(`/posts/${postId}`).then((response) => {
+      setPost(response.data);
+      dispatch(setPost2(response.data));
+      dispatch(setLoading(false));
+    });
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();

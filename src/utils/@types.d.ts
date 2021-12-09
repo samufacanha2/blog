@@ -3,6 +3,10 @@ declare module "blog" {
     id: number;
     title: string;
     body: string;
-    creator: string;
+    author: string;
+  };
+  type Storage = {
+    loading: boolean;
+    post: BlogPost;
   };
 }

@@ -7,9 +7,15 @@
   width: 100vw;
   background-color: var(--dark);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
+  @media screen and (max-width: 600px) {
+    padding: 0 auto;
+    justify-content: center;
+  }
 }
+
 .home {
   font-size: 2.5rem;
   border: var(--light) 1px solid;
@@ -22,6 +28,9 @@
   transition: 0.2s ease-in-out;
   &:hover {
     cursor: pointer;
-    filter: drop-shadow(-0.2rem -0.2rem 0.7rem var(--primary));
+    filter: drop-shadow(0 0 0.5rem var(--primary));
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 2rem;
   }
 }

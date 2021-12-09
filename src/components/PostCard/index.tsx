@@ -2,7 +2,7 @@ import "./styles.scss";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { BlogPost } from "blog";
-
+import { useDispatch } from "react-redux";
 interface Props {
   post: BlogPost;
 }

@@ -1,6 +1,7 @@
 import "./styles.scss";
 import { useNavigate } from "react-router";
 import { FaBloggerB } from "react-icons/fa";
+import TrailLink from "../TrailLink";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Menu = () => {
         <FaBloggerB />
         K-Blog
       </span>
-      <span>login</span>
+      <TrailLink />
     </div>
   );
 };
