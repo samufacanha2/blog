@@ -13,10 +13,6 @@ const TrailLink = () => {
   const urlArray = window.location.pathname.split("/");
   const post = useSelector((state: Storage) => state.post);
 
-  useEffect(() => {
-    console.log(post);
-  }, [post]);
-
   const getHtml = () => {
     switch (urlArray.length) {
       case 2:
