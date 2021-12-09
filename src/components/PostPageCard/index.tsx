@@ -21,12 +21,14 @@ const PostPageCard = () => {
 
   useEffect(() => {
     dispatch(setLoading(true));
-    api.get("posts/" + postId).then((response) => {
-      setPost(response.data);
-      dispatch(setLoading(false));
-      dispatch(setPost2(response.data));
-    });
+    post.id !== -1 ? dispatch(setLoading(false)) : fetchPost();
   }, []);
+  const fetchPost = () =>
+    api.get(`/posts/${postId}`).then((response) => {
+      setPost(response.data);
+      dispatch(setPost2(response.data));
+      dispatch(setLoading(false));
+    });
 
   const handleDelete = () => {
     api

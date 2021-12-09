@@ -21,6 +21,7 @@ const Form = ({ type }: Props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [post, setPost] = useState(initialState);
+  const [valid, setValid] = useState(false);
 
   const [, , , postId] = window.location.pathname.split("/");
   const reduxPost = useSelector((state: Storage) => state.post);
@@ -36,6 +37,20 @@ const Form = ({ type }: Props) => {
       dispatch(setLoading(false));
     });
 
+  useEffect(() => {
+    handleInputCheck();
+  }, [post]);
+  const handleInputCheck = () => {
+    return post.title && post.body && post.author
+      ? setValid(true)
+      : setValid(false);
+  };
+  const handleSubmitClick = () => {
+    if (!valid) {
+      toast.error("Fill all fields!");
+    }
+  };
+
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
 
@@ -43,7 +58,7 @@ const Form = ({ type }: Props) => {
       ? api
           .put(`/posts/${postId}`, post)
           .then(() => {
-            toast("Post updated!");
+            toast.success("Post updated!");
             navigate("/");
           })
           .catch((err) => {
@@ -79,7 +94,9 @@ const Form = ({ type }: Props) => {
           placeholder="Enter the post title here"
           id="title"
           value={post.title}
-          onChange={(e) => setPost({ ...post, title: e.target.value })}
+          onChange={(e) => {
+            setPost({ ...post, title: e.target.value });
+          }}
         />
       </div>
       <div className="form-group">
@@ -91,7 +108,9 @@ const Form = ({ type }: Props) => {
           name="body"
           value={post.body}
           placeholder="Enter the post content here"
-          onChange={(e) => setPost({ ...post, body: e.target.value })}
+          onChange={(e) => {
+            setPost({ ...post, body: e.target.value });
+          }}
         ></textarea>
       </div>
       <div className="form-group">
@@ -104,7 +123,9 @@ const Form = ({ type }: Props) => {
           id="author"
           placeholder="Enter you username here"
           value={post.author}
-          onChange={(e) => setPost({ ...post, author: e.target.value })}
+          onChange={(e) => {
+            setPost({ ...post, author: e.target.value });
+          }}
         />
       </div>
       <div className="form-buttons">
@@ -115,7 +136,11 @@ const Form = ({ type }: Props) => {
         >
           Back
         </button>
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className={`btn btn-primary ${valid ? "valid" : "not-valid"}`}
+          onClick={handleSubmitClick}
+        >
           Submit
         </button>
       </div>

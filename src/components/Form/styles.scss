@@ -10,6 +10,10 @@ form {
   h2 {
     text-align: center;
     margin-bottom: 2rem;
+    filter: drop-shadow(0 0 0.2rem var(--secondary));
+  }
+  label {
+    filter: drop-shadow(0 0 0.2rem var(--secondary));
   }
   input {
     font-size: 1.5rem;
@@ -18,9 +22,11 @@ form {
     border: none;
     border-radius: 2rem;
     border: 2px solid var(--primary);
+    transition: all 0.2s ease-in-out;
     &:not(:invalid) {
       border: 2px solid limegreen;
-      box-sizing: border-box;
+      box-shadow: 0 0 0.5rem limegreen;
+      background-color: var(--valid);
     }
   }
   textarea {
@@ -32,10 +38,12 @@ form {
     border-radius: 2rem;
     min-height: 30vh;
     max-width: 100%;
+    transition: all 0.2s ease-in-out;
     min-width: 100%;
     &:not(:invalid) {
       border: 2px solid limegreen;
-      box-sizing: border-box;
+      box-shadow: 0 0 0.5rem limegreen;
+      background-color: var(--valid);
     }
   }
   .form-group {
@@ -55,11 +63,25 @@ form {
       border-radius: 2rem;
       min-width: 10rem;
       font-size: 1.5rem;
+      background-color: var(--light);
       cursor: pointer;
-      transition: 0.1s ease-in-out;
+      transition: 0.4s ease-in-out;
       &:hover {
         transform: translateY(-0.3rem);
         box-shadow: 0 0.3rem 1rem var(--dark);
+      }
+    }
+    .valid {
+      background-color: var(--valid);
+      box-shadow: 0 0 0.5rem limegreen;
+    }
+    .not-valid {
+      background-color: var(--not-valid-bg);
+      color: var(--not-valid-in);
+      &:hover {
+        transform: none;
+        box-shadow: none;
+        cursor: not-allowed;
       }
     }
   }

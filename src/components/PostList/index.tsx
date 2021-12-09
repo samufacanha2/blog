@@ -17,9 +17,8 @@ const PostList = () => {
     api
       .get("/posts")
       .then((response) => {
-        console.log(response);
         setIsEmpty(response.data.length === 0);
-        setPosts(response.data);
+        setPosts(response.data.reverse());
         dispatch(resetPost());
         dispatch(setLoading(false));
       })
@@ -27,7 +26,6 @@ const PostList = () => {
         console.error(error);
       });
   }, []);
-
   return (
     <>
       {loading ? (
