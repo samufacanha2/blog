@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
-import api from "../../services/api";
-import { BlogPost } from "blog";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { FiEdit, FiTrash } from "react-icons/fi";
+
+import { BlogPost } from "blog";
+import api from "../../services/api";
 import "./styles.scss";
+
 export default function Post() {
   const [, , postId] = window.location.pathname.split("/");
   const [post, setPost] = useState(Object);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get("posts/" + postId).then((response) => {
@@ -14,8 +18,21 @@ export default function Post() {
     });
   }, []);
 
-  const handleDelete = () => {};
-  const handleEdit = () => {};
+  const handleDelete = () => {
+    api
+      .delete(`/posts/${postId}`)
+      .then(() => {
+        alert("Post deleted!");
+        navigate("/");
+      })
+      .catch((err) => {
+        alert("Error deleting post!");
+        console.error(err);
+      });
+  };
+  const handleEdit = () => {
+    navigate("/post/edit/" + postId);
+  };
 
   return (
     <div id="single-post" className="container">
