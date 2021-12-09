@@ -22,6 +22,7 @@ export default function Post() {
     api.get("posts/" + postId).then((response) => {
       setPost(response.data);
       dispatch(setLoading(false));
+      dispatch(setPost2(response.data));
     });
   }, []);
 
