@@ -4,26 +4,29 @@
   right: 5rem;
   height: 5rem;
   width: 5rem;
-  border-radius: 5rem;
   background-color: var(--light);
-  font-size: 5rem;
-  text-align: center;
-  text-justify: center;
+
+  border: 1px solid var(--dark);
+  border-radius: 5rem;
+
   color: var(--dark);
-  user-select: none;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-  box-sizing: content-box;
-  border: 1px solid var(--dark);
 
-  span {
-    display: block;
-    line-height: 5rem;
-    height: 5rem;
-    width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    height: 4rem;
+    width: 4rem;
   }
   &:hover {
-    background-color: var(--orange);
+    background-color: var(--primary);
     color: var(--light);
+    box-shadow: 0 0 0.8rem var(--primary);
+  }
+  @media screen and (max-width: 600px) {
+    right: 1rem;
+    bottom: 1rem;
   }
 }

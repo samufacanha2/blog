@@ -1,5 +1,6 @@
 import "./styles.scss";
 import { useNavigate } from "react-router";
+import { FiPlus } from "react-icons/fi";
 
 const AddButton = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const AddButton = () => {
         navigate("/post/add");
       }}
     >
-      <span>+</span>
+      <FiPlus />
     </div>
   );
 };

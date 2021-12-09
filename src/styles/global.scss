@@ -8,9 +8,10 @@
 }
 :root {
   --light: #eeeeee;
-  --orange: #fd7014;
-  --gray: #393e46;
+  --primary: #aa33b5;
+  --secondary: #14152c;
   --dark: #222831;
+  --red: #ca2b30;
 
   ::-webkit-scrollbar {
     width: 0.4em;
@@ -23,5 +24,31 @@
   ::-webkit-scrollbar-thumb {
     background-color: var(--light);
     border-radius: 10px;
+  }
+}
+.container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--secondary);
+}
+
+.content {
+  position: sticky;
+  top: 8vh;
+  width: 70%;
+  margin: 0 15%;
+  width: var(--width);
+  height: 92vh;
+  background-color: var(--primary);
+  padding: 0 5rem;
+  box-shadow: 0 0 1rem var(--primary);
+  color: var(--light);
+  overflow: auto;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }

@@ -1,0 +1,36 @@
+.post {
+  height: 50vh;
+  padding: 1rem 3rem;
+  background-color: var(--light);
+  margin: 3rem 0;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  border-radius: 5rem;
+  box-shadow: 0 0 0.2rem var(--secondary);
+
+  transition: all 0.2s ease-in-out;
+  .title {
+    font-size: 3rem;
+    color: var(--dark);
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+    color: var(--secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0.5rem 0.8rem 0.2rem var(--dark);
+  }
+}
