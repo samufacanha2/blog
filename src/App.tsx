@@ -6,6 +6,8 @@ import Post from "./pages/Post";
 import EditPost from "./pages/EditPost";
 import AddPost from "./pages/AddPost";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Menu from "./components/Menu";
 import store from "./utils/store";
@@ -17,6 +19,7 @@ function App() {
     <>
       <Provider store={store}>
         <BrowserRouter>
+          <ToastContainer autoClose={4000} position="top-right" />
           <Menu />
           <Routes>
             <Route path="/" element={<Home />} />

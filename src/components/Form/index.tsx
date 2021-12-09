@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { setPost as setPost2, setLoading } from "../../utils/actions";
 
@@ -42,21 +43,21 @@ const Form = ({ type }: Props) => {
       ? api
           .put(`/posts/${postId}`, post)
           .then(() => {
-            alert("Post updated!");
+            toast("Post updated!");
             navigate("/");
           })
           .catch((err) => {
-            alert("Error updating post!");
+            toast.error("Error updating post!");
             console.error(err);
           })
       : api
           .post("/posts", post)
           .then(() => {
-            alert("Post added!");
+            toast.success("Post added!");
             navigate("/");
           })
           .catch((err) => {
-            alert("Error adding post!");
+            toast.error("Error adding post!");
             console.error(err);
           });
   };
@@ -74,6 +75,8 @@ const Form = ({ type }: Props) => {
           required
           className="form-control"
           name="title"
+          maxLength={64}
+          placeholder="Enter the post title here"
           id="title"
           value={post.title}
           onChange={(e) => setPost({ ...post, title: e.target.value })}
@@ -87,18 +90,19 @@ const Form = ({ type }: Props) => {
           required
           name="body"
           value={post.body}
-          placeholder="Enter post body"
+          placeholder="Enter the post content here"
           onChange={(e) => setPost({ ...post, body: e.target.value })}
         ></textarea>
       </div>
       <div className="form-group">
-        <label htmlFor="author">Author Username</label>
+        <label htmlFor="author">Author</label>
         <input
           type="text"
           required
           className="form-control"
           name="author"
           id="author"
+          placeholder="Enter you username here"
           value={post.author}
           onChange={(e) => setPost({ ...post, author: e.target.value })}
         />

@@ -38,8 +38,8 @@
   position: sticky;
   top: 8vh;
   width: 70%;
-  margin: 0 15%;
-  width: var(--width);
+  max-width: 1400px;
+  margin: 0 auto;
   height: 92vh;
   background-color: var(--primary);
   padding: 0 5rem;

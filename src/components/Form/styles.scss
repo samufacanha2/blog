@@ -17,17 +17,26 @@ form {
     margin: 5px 0;
     border: none;
     border-radius: 2rem;
+    border: 2px solid var(--primary);
+    &:not(:invalid) {
+      border: 2px solid limegreen;
+      box-sizing: border-box;
+    }
   }
   textarea {
     font-size: 1.5rem;
 
     padding: 10px;
     margin: 5px 0;
-    border: none;
+    border: 2px solid var(--primary);
     border-radius: 2rem;
     min-height: 30vh;
     max-width: 100%;
     min-width: 100%;
+    &:not(:invalid) {
+      border: 2px solid limegreen;
+      box-sizing: border-box;
+    }
   }
   .form-group {
     margin-bottom: 1rem;
@@ -54,6 +63,7 @@ form {
       }
     }
   }
+
   @media screen and (max-width: 600px) {
     width: 100%;
     font-size: 120%;

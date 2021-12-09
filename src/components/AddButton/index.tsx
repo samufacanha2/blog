@@ -12,6 +12,7 @@ const AddButton = () => {
       }}
     >
       <FiPlus />
+      <div className="text">New Post</div>
     </div>
   );
 };

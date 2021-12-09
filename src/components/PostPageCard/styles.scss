@@ -1,0 +1,99 @@
+#single-post {
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .card {
+    background-color: var(--light);
+    height: 70%;
+    color: var(--dark);
+    border-radius: 5rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 12rem;
+
+      .icon {
+        box-sizing: content-box;
+        border-radius: 50%;
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+      }
+      .edit-icon:hover {
+        background-color: var(--primary);
+        color: var(--light);
+      }
+      .delete-icon:hover {
+        background-color: var(--red);
+        color: var(--light);
+      }
+    }
+    .body-author {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      p {
+        border-bottom: 1px solid var(--secondary);
+        padding-bottom: 0.5rem;
+      }
+      .author {
+        margin-left: 5%;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .content {
+      padding: 8vh 0 0 0;
+      height: 100%;
+
+      overflow-x: hidden;
+    }
+    .card {
+      height: 98%;
+      width: 98%;
+      box-shadow: 0 0 0.8rem var(--dark);
+      padding: 3rem 2rem;
+      .icons {
+        flex-direction: column;
+        min-width: 30%;
+        height: 100%;
+        svg {
+          width: 2.2rem;
+          height: 2.2rem;
+        }
+      }
+      p {
+        overflow-y: auto;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--dark);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar {
+        width: 0.2em;
+      }
+    }
+  }
+}
