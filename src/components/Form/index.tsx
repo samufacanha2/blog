@@ -2,7 +2,11 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
-import { setPost as setPost2, setLoading } from "../../utils/actions";
+import {
+  setPost as setPost2,
+  setLoading,
+  resetPost,
+} from "../../utils/actions";
 
 import "./styles.scss";
 import api from "../../services/api";
@@ -59,6 +63,7 @@ const Form = ({ type }: Props) => {
           .put(`/posts/${postId}`, post)
           .then(() => {
             toast.success("Post updated!");
+            dispatch(setPost2({ ...post, id: parseInt(postId) }));
             navigate(-1);
           })
           .catch((err) => {
