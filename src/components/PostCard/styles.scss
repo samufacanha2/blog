@@ -1,7 +1,6 @@
 .post {
   height: 50vh;
   padding: 1rem 3rem;
-  background-color: var(--light);
   margin: 3rem auto;
   text-decoration: none;
 
@@ -9,20 +8,30 @@
   flex-direction: column;
   justify-content: center;
   gap: 30%;
-
+  border: 1px solid var(--primary);
   border-radius: 5rem;
-  box-shadow: 0 0 0.2rem var(--secondary);
+  box-shadow: 0 0 0.2rem var(--primary);
+  // background-image: linear-gradient(
+  //   to top right,
+  //   var(--primary) -100%,
+  //   var(--dark) 100%
+  // );
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+
+  backdrop-filter: blur(20px);
 
   transition: all 0.2s ease-in-out;
   .title {
     font-size: 3rem;
-    color: var(--dark);
+    color: var(--primary);
+    filter: drop-shadow(0 0 0.2rem var(--dark));
     font-weight: bold;
   }
 
   p {
     font-size: 1.5rem;
-    color: var(--secondary);
+    color: var(--light);
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -32,7 +41,7 @@
   }
   &:hover {
     transform: translateY(-0.5rem);
-    box-shadow: 0 0.5rem 0.8rem 0.2rem var(--dark);
+    box-shadow: 0 0.5rem 0.8rem 0.2rem var(--primary);
   }
   @media screen and (max-width: 600px) {
     width: 97%;

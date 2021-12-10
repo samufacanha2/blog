@@ -1,15 +1,12 @@
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { VscTriangleRight } from "react-icons/vsc";
 
-import api from "../../services/api";
 import "./styles.scss";
-import { BlogPost, Storage } from "blog";
+import { Storage } from "blog";
 
 const TrailLink = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const urlArray = window.location.pathname.split("/");
   const post = useSelector((state: Storage) => state.post);
 

@@ -4,14 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import { toast } from "react-toastify";
 import api from "../../services/api";
-import { BlogPost, Storage } from "blog";
+import { Storage } from "blog";
 import { setPost as setPost2, setLoading } from "../../utils/actions";
 import "./styles.scss";
 import Loading from "../../components/Loading";
 
-interface Props {
-  post: BlogPost;
-}
 const PostPageCard = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState(useSelector((state: Storage) => state.post));
@@ -22,7 +19,7 @@ const PostPageCard = () => {
   useEffect(() => {
     dispatch(setLoading(true));
     post.id !== -1 ? dispatch(setLoading(false)) : fetchPost();
-  }, []);
+  }, [dispatch, post.id]);
   const fetchPost = () =>
     api.get(`/posts/${postId}`).then((response) => {
       setPost(response.data);
