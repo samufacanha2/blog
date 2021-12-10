@@ -99,6 +99,15 @@ form {
     textarea {
       font-size: 1.2rem;
     }
+    .form-group {
+      ::-webkit-scrollbar {
+        width: 0.2rem;
+      }
+      ::-webkit-scrollbar-track {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
     .form-buttons {
       justify-content: space-around;
       button {

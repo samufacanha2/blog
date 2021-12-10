@@ -104,12 +104,12 @@
         height: 50vh;
         overflow-y: auto;
       }
-      ::-webkit-scrollbar-thumb {
-        background-color: var(--dark);
-        border-radius: 10px;
-      }
       ::-webkit-scrollbar {
-        width: 0.2em;
+        width: 0.2rem;
+      }
+      ::-webkit-scrollbar-track {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
       }
     }
   }
