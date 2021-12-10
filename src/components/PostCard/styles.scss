@@ -2,7 +2,8 @@
   height: 50vh;
   padding: 1rem 3rem;
   margin: 3rem auto;
-  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
 
   display: flex;
   flex-direction: column;

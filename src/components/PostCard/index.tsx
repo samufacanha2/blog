@@ -1,15 +1,26 @@
 import "./styles.scss";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { BlogPost } from "blog";
+import { useDispatch } from "react-redux";
+import { setPost } from "../../utils/actions";
+
 interface Props {
   post: BlogPost;
 }
 const PostCard = ({ post }: Props) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setPost(post));
+    navigate(`post/${post.id}`);
+  };
+
   return (
-    <Link to={`post/${post.id}`} className="post">
+    <div className="post" onClick={handleClick}>
       <span className="title">{post.title}</span>
       <p>{post.body?.substring(0, 300)}</p>
-    </Link>
+    </div>
   );
 };
 
