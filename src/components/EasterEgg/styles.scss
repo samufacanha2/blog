@@ -1,0 +1,57 @@
+@media screen and (min-width: 600px) {
+  #Walk,
+  #Sleep {
+    position: fixed;
+    bottom: calc(4vh + 3px);
+  }
+  #Walk {
+    animation: walk 20s linear forwards;
+    animation-delay: 300s;
+    height: 5rem;
+    width: 5rem;
+    visibility: hidden;
+  }
+  #Sleep {
+    left: 12rem;
+    height: 6rem;
+    width: 9rem;
+    animation: sleep 1s linear forwards;
+    visibility: hidden;
+    animation-delay: 319s;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #Walk,
+  #Sleep {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes walk {
+  0% {
+    visibility: visible;
+    left: 100vw;
+  }
+  95% {
+    visibility: visible;
+    left: 15rem;
+  }
+  100% {
+    visibility: hidden;
+    left: 15rem;
+  }
+}
+@keyframes sleep {
+  0% {
+    visibility: hidden;
+  }
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
