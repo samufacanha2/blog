@@ -16,6 +16,8 @@ form {
     filter: drop-shadow(0 0 0.2rem var(--secondary));
   }
   input {
+    color: var(--light);
+    background-color: var(--secondary);
     font-size: 1.5rem;
     padding: 10px;
     margin: 5px 0;
@@ -23,28 +25,21 @@ form {
     border-radius: 2rem;
     border: 2px solid var(--primary);
     transition: all 0.2s ease-in-out;
-    &:not(:invalid) {
-      border: 2px solid limegreen;
-      box-shadow: 0 0 0.5rem limegreen;
-      background-color: var(--valid);
-    }
   }
   textarea {
     font-size: 1.5rem;
 
+    color: var(--light);
+    background-color: var(--secondary);
     padding: 10px;
     margin: 5px 0;
     border: 2px solid var(--primary);
     border-radius: 2rem;
-    min-height: 30vh;
+    min-height: 35vh;
     max-width: 100%;
     transition: all 0.2s ease-in-out;
     min-width: 100%;
-    &:not(:invalid) {
-      border: 2px solid limegreen;
-      box-shadow: 0 0 0.5rem limegreen;
-      background-color: var(--valid);
-    }
+    resize: none;
   }
   .form-group {
     margin-bottom: 1rem;
@@ -66,14 +61,19 @@ form {
       background-color: var(--light);
       cursor: pointer;
       transition: 0.4s ease-in-out;
+
+      color: var(--light);
+      background-color: var(--secondary);
       &:hover {
         transform: translateY(-0.3rem);
         box-shadow: 0 0.3rem 1rem var(--dark);
       }
     }
     .valid {
-      background-color: var(--valid);
       box-shadow: 0 0 0.5rem limegreen;
+      &:hover {
+        box-shadow: 0 0.3rem 1rem limegreen;
+      }
     }
     .not-valid {
       background-color: var(--not-valid-bg);

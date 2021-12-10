@@ -59,7 +59,7 @@ const Form = ({ type }: Props) => {
           .put(`/posts/${postId}`, post)
           .then(() => {
             toast.success("Post updated!");
-            navigate("/");
+            navigate(-1);
           })
           .catch((err) => {
             toast.error("Error updating post!");

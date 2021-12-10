@@ -8,8 +8,9 @@ const Menu = () => {
   return (
     <div className="menu-container">
       <span className="home" onClick={() => navigate("/")}>
+        K-
         <FaBloggerB />
-        K-Blog
+        log
       </span>
       <TrailLink />
     </div>

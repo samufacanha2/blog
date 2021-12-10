@@ -10,7 +10,7 @@ export default function Home() {
     <>
       {loading && <Loading />}
       <div className="container">
-        <div className="content">
+        <div id="Home" className="content">
           <PostList />
           <AddButton />
         </div>

@@ -3,7 +3,7 @@
   position: fixed;
   height: 8vh;
   z-index: 1;
-  padding: 0 10vw 0 10vw;
+  padding: 0 15vw 0 15vw;
   width: 100vw;
   background-color: var(--dark);
   display: flex;
@@ -24,7 +24,7 @@
   user-select: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.1rem;
   transition: 0.2s ease-in-out;
   &:hover {
     cursor: pointer;

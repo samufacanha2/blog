@@ -1,0 +1,6 @@
+#Home {
+  border-bottom: var(--primary) 2px solid;
+  @media screen and (max-width: 600px) {
+    border-bottom: unset;
+  }
+}
