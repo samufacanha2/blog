@@ -27,6 +27,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      span {
+        max-height: 15vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 0.2rem;
+      }
+      ::-webkit-scrollbar-track {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+      @media screen and (min-width: 600px) and (max-width: 1200px) {
+        font-size: 2.2rem;
+      }
     }
     .icons {
       display: flex;
@@ -61,7 +76,7 @@
       align-items: flex-start;
       gap: 2rem;
       color: var(--light);
-      max-height: 45vh;
+      max-height: 40vh;
       .body {
         display: flex;
         flex-direction: column;
@@ -101,8 +116,11 @@
       }
       h2 {
         font-size: 2.2rem;
+        span {
+          max-height: unset;
+        }
       }
-      .body-author p {
+      .body-author .body {
         font-size: 1.1rem;
         height: 50vh;
         overflow-y: auto;
