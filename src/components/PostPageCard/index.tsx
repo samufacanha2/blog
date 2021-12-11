@@ -25,6 +25,7 @@ const PostPageCard = () => {
       setPost(response.data);
       dispatch(setPost2(response.data));
       dispatch(setLoading(false));
+      console.log(response.data.body.split("\n"));
     });
 
   const handleDelete = () => {
@@ -64,7 +65,12 @@ const PostPageCard = () => {
                 </div>
               </h2>
               <div className="body-author">
-                <p>{post.body}</p>
+                <div className="body">
+                  {post.body.split("\n").map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+
                 <span className="author">- {post.author}</span>
               </div>
             </div>
