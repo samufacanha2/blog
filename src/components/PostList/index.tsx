@@ -33,7 +33,7 @@ const PostList = () => {
       ) : !isEmpty ? (
         posts.map((post: BlogPost) => <PostCard post={post} />)
       ) : (
-        <h2>Add A New Post!</h2>
+        <h2 className="empty-list">Add A New Post!</h2>
       )}
     </>
   );
