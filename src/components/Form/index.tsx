@@ -48,7 +48,9 @@ const Form = ({ type }: Props) => {
 
   useEffect(() => {
     handleInputCheck();
+    console.log(post);
   }, [post]);
+
   const handleInputCheck = () => {
     return post.title && post.body && post.author
       ? setValid(true)
@@ -64,7 +66,7 @@ const Form = ({ type }: Props) => {
     e.preventDefault();
 
     type === "edit"
-      ? post.address === wallet.address
+      ? post.address === wallet.address || post.address.length < 18
         ? api
             .put(`/posts/${postId}`, post)
             .then(() => {

@@ -23,6 +23,7 @@ const PostPageCard = () => {
     dispatch(setLoading(true));
     post.id !== -1 ? dispatch(setLoading(false)) : fetchPost();
   }, [dispatch, post.id]);
+
   const fetchPost = () =>
     api.get(`/posts/${postId}`).then((response) => {
       setPost(response.data);
@@ -32,7 +33,9 @@ const PostPageCard = () => {
     });
 
   const handleDelete = () => {
-    post.address === wallet.address || post.address === ""
+    console.log(post);
+
+    post.address === wallet.address || post.address.length < 18
       ? window.confirm("Are you sure you want to delete this post?")
         ? api
             .delete(`/posts/${postId}`)
