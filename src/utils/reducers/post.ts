@@ -6,6 +6,8 @@ const initialState: BlogPost = {
   title: "",
   body: "",
   author: "",
+  signed: false,
+  address: "",
 };
 
 const postReducer = (state = initialState, action: PayloadAction<BlogPost>) => {

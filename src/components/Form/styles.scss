@@ -46,6 +46,15 @@ form {
     display: flex;
     flex-direction: column;
   }
+  .form-group-row {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    input {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
   .form-buttons {
     display: flex;
     justify-content: space-between;

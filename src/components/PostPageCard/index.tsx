@@ -9,14 +9,19 @@ import { setPost as setPost2, setLoading } from "../../utils/actions";
 import "./styles.scss";
 import Loading from "../../components/Loading";
 
+const newWindow: any = window;
+
 const PostPageCard = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState(useSelector((state: Storage) => state.post));
+  const wallet = useSelector((state: Storage) => state.wallet);
   const dispatch = useDispatch();
   const loading = useSelector((state: Storage) => state.loading);
   const [, , postId] = window.location.pathname.split("/");
 
   useEffect(() => {
+    console.log("wallet:", wallet.address, "post:", post.address);
+
     dispatch(setLoading(true));
     post.id !== -1 ? dispatch(setLoading(false)) : fetchPost();
   }, [dispatch, post.id]);
@@ -55,14 +60,16 @@ const PostPageCard = () => {
             <div className="card">
               <h2>
                 <span>{post.title}</span>{" "}
-                <div className="icons">
-                  <div className="icon edit-icon" onClick={handleEdit}>
-                    <FiEdit />
+                {(wallet.address === post.address || !post.signed) && (
+                  <div className="icons">
+                    <div className="icon edit-icon" onClick={handleEdit}>
+                      <FiEdit />
+                    </div>
+                    <div className="icon delete-icon" onClick={handleDelete}>
+                      <FiTrash />
+                    </div>
                   </div>
-                  <div className="icon delete-icon" onClick={handleDelete}>
-                    <FiTrash />
-                  </div>
-                </div>
+                )}
               </h2>
               <div className="body-author">
                 <div className="body">

@@ -15,15 +15,20 @@ const initialState = {
   title: "",
   body: "",
   author: "",
+  signed: false,
+  address: "",
 };
 
 interface Props {
   type?: string;
 }
 
+const newWindow: any = window;
+
 const Form = ({ type }: Props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const wallet = useSelector((state: Storage) => state.wallet);
   const [post, setPost] = useState(initialState);
   const [valid, setValid] = useState(false);
 
@@ -59,17 +64,19 @@ const Form = ({ type }: Props) => {
     e.preventDefault();
 
     type === "edit"
-      ? api
-          .put(`/posts/${postId}`, post)
-          .then(() => {
-            toast.success("Post updated!");
-            dispatch(setPost2({ ...post, id: parseInt(postId) }));
-            navigate(-1);
-          })
-          .catch((err) => {
-            toast.error("Error updating post!");
-            console.error(err);
-          })
+      ? post.address === wallet.address
+        ? api
+            .put(`/posts/${postId}`, post)
+            .then(() => {
+              toast.success("Post updated!");
+              dispatch(setPost2({ ...post, id: parseInt(postId) }));
+              navigate(-1);
+            })
+            .catch((err) => {
+              toast.error("Error updating post!");
+              console.error(err);
+            })
+        : toast.error("You are not the author of this post!")
       : api
           .post("/posts", post)
           .then(() => {
@@ -133,6 +140,29 @@ const Form = ({ type }: Props) => {
           }}
         />
       </div>
+      {type !== "edit" && (
+        <div className="form-group-row">
+          <input
+            type="checkbox"
+            className="form-control"
+            name="signed"
+            id="signed"
+            disabled={wallet.address === ""}
+            placeholder="Enter you username here"
+            checked={post.signed}
+            onChange={(e) => {
+              setPost({
+                ...post,
+                signed: !!e.target.value,
+                address: !!e.target.value
+                  ? newWindow.tronWeb.defaultAddress.base58
+                  : "",
+              });
+            }}
+          />
+          <label htmlFor="author"> Signed</label>
+        </div>
+      )}
       <div className="form-buttons">
         <button
           type="button"

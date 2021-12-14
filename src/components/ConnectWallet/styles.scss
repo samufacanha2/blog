@@ -1,0 +1,31 @@
+#connect-wallet {
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 2rem;
+  min-width: 10rem;
+  max-height: 7vh;
+
+  background-color: var(--light);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+
+  color: var(--dark);
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.3rem 1rem var(--primary);
+    color: var(--primary);
+  }
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+.wallet-connected {
+  font-size: 1.2rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
