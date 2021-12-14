@@ -55,7 +55,7 @@ const ConnectWallet = () => {
     <>
       {!wallet.isLoggedIn ? (
         <button type="button" onClick={handleButton} id="connect-wallet">
-          Conectar Cateira
+          Connect Wallet
         </button>
       ) : (
         <span className="wallet-connected">
