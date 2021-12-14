@@ -20,8 +20,6 @@ const PostPageCard = () => {
   const [, , postId] = window.location.pathname.split("/");
 
   useEffect(() => {
-    console.log("wallet:", wallet.address, "post:", post.address);
-
     dispatch(setLoading(true));
     post.id !== -1 ? dispatch(setLoading(false)) : fetchPost();
   }, [dispatch, post.id]);
@@ -34,17 +32,21 @@ const PostPageCard = () => {
     });
 
   const handleDelete = () => {
-    api
-      .delete(`/posts/${postId}`)
-      .then(() => {
-        toast.success("Post deleted!");
+    post.address === wallet.address || post.address === ""
+      ? window.confirm("Are you sure you want to delete this post?")
+        ? api
+            .delete(`/posts/${postId}`)
+            .then(() => {
+              toast.success("Post deleted!");
 
-        navigate("/");
-      })
-      .catch((err) => {
-        toast.error("Error deleting post!");
-        console.error(err);
-      });
+              navigate("/");
+            })
+            .catch((err) => {
+              toast.error("Error deleting post!");
+              console.error(err);
+            })
+        : console.log("canceled")
+      : toast.error("You can only delete your own posts!");
   };
   const handleEdit = () => {
     navigate("/post/edit/" + postId);
